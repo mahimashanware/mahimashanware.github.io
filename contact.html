@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Lato|Oswald|Roboto&display=swap');
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 18px;
+  list-style: none;
+  background: #cce6ff;
+}
+body {
+  font-size: 1.2em;
+  line-height: 1.6;
+  background: #cce6ff;
+  overflow-x: hidden;
+  list-style: none;
+}
+label .menu {
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  z-index: 100;
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-radius: 50% 50% 50% 50%;
+  transition: 0.5s ease-in-out;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff;
+  cursor: pointer;
+}
+label .hamburger {
+  position: absolute;
+  top: 135px;
+  left: 50px;
+  width: 30px;
+  height: 2px;
+  background: #484848;
+  display: block;
+  transform-origin: center;
+  transition: 0.5s ease-in-out;
+}
+label .hamburger:after, label .hamburger:before {
+  transition: 0.5s ease-in-out;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #484848;
+}
+label .hamburger:before {
+  top: -10px;
+}
+label .hamburger:after {
+  bottom: -10px;
+}
+label input {
+  display: none;
+}
+label input:checked + .menu {
+  box-shadow: 0 0 0 100vw #fff, 0 0 0 100vh #fff;
+  border-radius: 0;
+}
+label input:checked + .menu .hamburger {
+  transform: rotate(45deg);
+}
+label input:checked + .menu .hamburger:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+label input:checked + .menu .hamburger:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+label input:checked + .menu + ul {
+  opacity: 1;
+}
+label ul {
+  z-index: 200;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.25s 0s ease-in-out;
+}
+
+label a {
+  margin-bottom: 1em;
+  display: block;
+  color: #484848;
+  text-decoration: none;
+}
+
+label a:hover {
+	color: #cce6ff;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+}
+
+#container {
+	font-family: 'Open Sans', sans-serif;
+	position: relative;
+	text-align: center;
+	display: inline-block;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#main img {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1em;
+	min-width: 300px;
+	max-width: 28%;
+	height: auto;
+	filter: gray; /* IE5+ */
+      -webkit-filter: grayscale(40%); /* Webkit Nightlies & Chrome Canary */
+      -webkit-transition: all .1s ease-in-out; 
+	padding:4px;
+	border:3px solid white;
+	background-color:#cce6ff;
+}
+#main img:hover {
+    filter: none;
+      -webkit-filter: grayscale(0);
+    }
+
+
+#title {
+	font-family: 'Oswald', sans-serif;
+	color: #7e7f80;
+	text-shadow: 2px 2px white;
+	font-size: 3em;
+	margin-bottom: -10px;
+}
+
+#text {
+	font-family: 'Lato', sans-serif;
+  background-color: white;
+	font-weight: lighter;
+	color: #7e7f80;
+	margin: 0;
+	font-size: 1em;
+}
+
+#buttons { /* https://codepen.io/dmlb/pen/Aktzl */
+}
+
+#buttons img {
+	-webkit-filter: opacity(50%); /* Safari */
+	filter: opacity(50%);
+	width: 30px;
+	height: auto;
+	margin-top: .5em;
+	margin-right: 1em;
+	margin-left: 1em;
+	border-radius: 50%;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+          transition:         transform .2s ease-in-out;
+
+}
+
+#buttons img:hover {
+	-webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+    cursor: pointer;
+    filter: opacity(75%);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}​
+
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background: #4CAF50;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#contact {
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#contact button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#contact button[type="submit"]:hover {
+  background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+  text-align: center;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+
+
+</style>
+
+</head>
+
+<body>
+  <label> <!-- the hamburger menu code here-->
+    <input type="checkbox"></input>
+    <span class="menu">
+    <span class="hamburger"></span>
+    </span>
+    <ul>
+      <a href="index.html">Home</a>
+      <a href=about.html>About</a>
+      <a href="exp.html">Experience</a>
+      <a href="CMU_Mahima_Resume.pdf" target="_blank">Resume</a>
+      <a href="contact.html">Contact</a>
+      </ul>
+  </label>
+
+<div class="container">  
+  <form id="contact" action="" method="post">
+    <h3>Contact me!</h3>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+</div>
+
+
+
+
+</body>
+</html>
+
